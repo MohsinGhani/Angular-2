@@ -1,0 +1,12 @@
+.container{
+    margin: 0 auto;
+    max-width: 700px;
+}
+.heading{
+    text-align: center;
+    border: green solid 3px;
+    max-width: 200px;
+    border-radius: 10px 0px 10px 0px;
+    margin: 0 auto;
+    margin-top: 5px;
+}

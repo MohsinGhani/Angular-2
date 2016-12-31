@@ -1,0 +1,6 @@
+<div class="container">
+<h1>Todos</h1>
+<ol> <li *ngFor = "let t of tasks">{{t}}</li> </ol>
+<input class="newTodo" type="text" [(ngModel)]="task" placeholder="Write Your Task"/>
+<button (click) = "addTask()" id="addButton">Add Task</button>
+ </div><!--container--->
