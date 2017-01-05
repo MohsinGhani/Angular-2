@@ -1,0 +1,82 @@
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <a class="navbar-brand" >Super Market</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"  *ngIf="!adminForm">
+        <a class="nav-link home" (click)="gotoHome()">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"  *ngIf="!adminForm">
+        <a class="nav-link showCart" (click)="showCart()" *ngIf="!showCartItem">Show Cart</a>
+        <a class="nav-link hideCart" (click)="hideCart()" *ngIf="showCartItem">Hide Cart</a>
+      </li>
+      <li class="nav-item addItem"  *ngIf="!adminForm">
+        <a class="nav-link" (click)="addItemForm();">Add Item</a>
+      </li>
+      <li class="nav-item"  *ngIf="!adminForm">
+        <a class="nav-link" >About</a>
+      </li>
+      <li class="nav-item"  *ngIf="adminForm">
+        <input type="text" [(ngModel)]="adminName">
+      </li>
+      <li class="nav-item"  *ngIf="adminForm">
+        <input type="password" [(ngModel)]="adminPass">
+      </li>
+      <li class="nav-item"  *ngIf="adminForm">
+        <button (click)="adminLogin(adminName,adminPass)">Login</button>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<div class="container"><hr>
+<div *ngIf="addItem">
+  <div>
+    <label>Category: </label>
+    <input type="text" [(ngModel)]="categoty"><br>
+    <label>Brand: </label>
+    <input type="text" [(ngModel)]="name"><br>
+    <label>Contact: </label>
+    <input type="text" [(ngModel)]="contact"><br>
+    <label>Email: </label>
+    <input type="email" [(ngModel)]="email"><br>
+    <label>Price: </label>
+    <input type="text" [(ngModel)]="price"><br>
+    <button (click)="add(category,name,contact,email,price)">Add new Item</button>
+  </div>
+</div><!--addItem-->
+
+<div  *ngIf="showProducts">
+  <div *ngFor="let item of itemNames; let i = index" class="col-sm-3 products">
+    <div class="item-img"><img [src]="fullPath[i]"/></div>
+    <p>Category: {{categories[i]}}</p>
+    <p>Brand: {{item}}</p>
+    <p>Contact: {{contacts[i]}}</p>
+    <p>Email: {{emails[i]}}</p>
+    <p>Price: RS. {{prices[i]}}/=</p>
+    <button (click)="cart(i,item)">Add to cart</button>
+  </div>
+</div><!--showProducts-->
+<div class="col-sm-3"></div>
+<div class="col-sm-6 cartContent" *ngIf="showCartItem">
+  <h1 class="cartHeading">Cart Items</h1><hr>
+  <div class="col-sm-6 cartItem"><strong>PRODUCT NAME</strong></div>
+  <div class="col-sm-6 cartItem"><strong>PRODUCT PRICE</strong></div>
+  <div *ngFor="let cartItem of cartItems;  let i = index" class="cartItem">
+    <div class="col-sm-6 cartItem">{{cartItem}}</div>
+    <div class="col-sm-6 cartItem">Rs.{{cartPrices[i]}}</div>
+  </div>
+  <div class="col-sm-6 cartItem"><strong>TOTAL PRICE</strong></div>
+  <div class="col-sm-6 cartItem"><strong>RS. {{totalPrice}}/=</strong></div>
+
+  
+</div><!--showCartItem-->
+
+</div><!--container-->
+
+
+

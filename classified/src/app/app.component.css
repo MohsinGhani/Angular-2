@@ -1,0 +1,42 @@
+.item-img{
+    height: 200px;
+    width: 225px;
+    margin:0 auto;
+}
+
+.item-img img{
+    height: 200px;
+    width: 225px;
+    padding: 1px;
+    border: #000 solid 1px;
+}
+
+.products{
+    padding: 3px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    border: #fff solid 1px;
+}
+
+.products:hover{
+    padding: 3px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    border: #ccc solid 1px;
+}
+
+.showCart, .hideCart, .addItem, .home{
+    cursor: pointer;
+}
+
+.cartContent{
+    border: #000 solid 1px;
+}
+
+.cartHeading{
+    text-align: center;
+}
+
+.cartItem{
+    text-align: center;
+}
